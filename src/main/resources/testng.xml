@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding ="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="HCL test Suite">
+<suite name="HCL test Suite">	 
+	
+	<!-- listeners -->
+       <!--  listener class-name="com.customlisteners.ExtentListnener"-->
+   <!-- listeners-->
 
-	<!-- This parameter will be passed to every test in this suite -->
-    <parameter name="browser" value="chrome" />
-    <parameter name="appURL" value="" />  
+	<!-- This parameter will be passed to every test in this suite -->  
+	<parameter name="browser" value="chrome" /> 
+    <parameter name="appURL" value="https://healthcaresuccess.com" />  
 
 	<test name="HomePageTests">
 	
         <!-- This parameter will be passed this test only -->
-        
+        <parameter name="testName" value="HomePageTests" />
         <classes>
             <class name="com.tests.HomePageTest">
                 
