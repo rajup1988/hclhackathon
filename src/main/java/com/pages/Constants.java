@@ -19,5 +19,6 @@ public class Constants {
 	public static final String TESTIMONIAL_PAGE_TITLE = "Marketing Client Testimonials - Healthcare Success";
 	
 	
-	public static final String TESTIMONIAL_FILE_PATH = runProp.getProperty("");
+	public static final String TESTIMONIAL_FILE_PATH = runProp.getProperty("testimonial.file.path");
+	public static final String BRANDINGPAGE_EXCEL_FILE_PATH = runProp.getProperty("brandingpage.file.path");
 }
