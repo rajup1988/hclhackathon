@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.pages.HomePage;
+import com.utils.ScreenshotUtil;
 
 /**
  * @author mohan
@@ -59,6 +60,17 @@ public class HomePageTest extends BaseTest {
 		
 		homePage.clickSubmitButton();
 		ru.logInfoWithScreenshot("Contact Details Submitted.."); 
+		
+	}
+	
+	@Test(priority=0)
+	public void compareScreenshotTest() {
+		
+		HomePage homePage = page.getInstance(HomePage.class);
+		
+		//homePage.scrollToMenu();		
+		//ScreenshotUtil.takeScreenshotAndCompare("src/main/resources/images/HomePage_Expected.png", "HomePage", driver);		
+		ScreenshotUtil.captureParticularElementAndCompare("src/main/resources/images/HomePage_Logo_Expected.png", "HomePage_Logo", homePage.getLogo());
 		
 	}
 	

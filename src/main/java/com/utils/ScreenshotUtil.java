@@ -16,7 +16,7 @@ import ru.yandex.qatools.ashot.comparison.ImageDiffer;
 
 public class ScreenshotUtil {
 	
-	public static void takeScreenshotAndCompare(String expectedFilePath, String pageName, WebDriver driver) throws Exception
+	public static void takeScreenshotAndCompare(String expectedFilePath, String pageName, WebDriver driver) 
 	{
 		try {
 			File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
@@ -38,11 +38,11 @@ public class ScreenshotUtil {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			// logger statement.
-			throw new Exception(e); // preventing execution progress
+			e.printStackTrace();
 		}
 	}
 	
-	public static void captureParticularElementAndCompare(String expectedFilePath, String imageName, WebElement element) throws Exception
+	public static void captureParticularElementAndCompare(String expectedFilePath, String imageName, WebElement element)
 	{
 		 try {
 			File file = new File("src/main/resources/images/"+imageName+"_Actual.png");
@@ -61,7 +61,7 @@ public class ScreenshotUtil {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			// logger statement.
-			throw new Exception(e); // preventing execution progress
+			e.printStackTrace();// preventing execution progress
 		}
 	}
 
