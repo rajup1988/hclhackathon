@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding ="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="HCL test Suite" verbose="5" thread-count="3">
+
+	<!-- This parameter will be passed to every test in this suite -->
+    <parameter name="browser" value="chrome" />
+    <parameter name="appURL" value="" />  
+
+	<test name="SOME NAME" parallel="methods" thread-count="3">
+	
+        <!-- This parameter will be passed this test only -->
+        <parameter name="testName" value="Happy Flow" />
+        
+        <classes>
+            <class name="com.tests.LoginPageTest">
+            
+                <methods>
+                    <include name="" />
+                </methods>
+                
+            </class>
+        </classes>
+        
+    </test>  
+
+
+</suite>
