@@ -30,6 +30,8 @@ public class HomePage extends BasePage {
 	private By footer_WebSite = By.xpath("//footer//input[@name='website']");
 	private By footer_TextArea = By.xpath("//footer//textarea[@name='message']");
 	private By footer_Submit_Button = By.xpath("//footer//input[@type='submit']");
+	
+	private By logo = By.xpath("//a[@class='brand header-logo']/img");
 
 
 	public HomePage(WebDriver driver) {
@@ -183,6 +185,12 @@ public class HomePage extends BasePage {
 		
 	}
 	
+	public void scrollToMenu() {
+		scrollToElementView(all_First_Level_Menu);
+		
+	}
 	
-
+	public WebElement getLogo() {
+		return getElement(logo);
+	}
 }
