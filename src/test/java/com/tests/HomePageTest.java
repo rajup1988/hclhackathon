@@ -21,6 +21,7 @@ public class HomePageTest extends BaseTest {
 		
 		int menuCount = homePage.getMainMenuCount();
 		Assert.assertTrue(menuCount>0, "Menu count returned is not > 0!");
+		System.out.println("Menu Count is:- "+menuCount);
 		//Screenshot here
 		
 		System.out.println(homePage.getMenuName());

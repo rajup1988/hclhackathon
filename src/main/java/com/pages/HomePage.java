@@ -47,7 +47,8 @@ public class HomePage extends BasePage {
 		
 		menus = getElements(all_First_Level_Menu);
 		for (WebElement menu: menus) {
-			menuNames = menuNames + menu.getText() + ";" ;			
+			if(!menu.getText().equals(null))
+				menuNames = menuNames + menu.getText() + ";" ;			
 		}
 		return menuNames;
 	}
@@ -85,7 +86,7 @@ public class HomePage extends BasePage {
 			moveToElement(mainMenu_AboutUs);
 			getElement(subMenu_Testimonials).click();
 			waitForPageTitle(Constants.TESTIMONIAL_PAGE_TITLE);
-			return new Testimonials();			
+			return new Testimonials(driver);			
 		} catch(Exception e) {
 			e.printStackTrace();
 			return null;
