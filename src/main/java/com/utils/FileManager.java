@@ -1,6 +1,7 @@
 package com.utils;
 
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Properties;
@@ -29,7 +30,7 @@ public class FileManager {
 		}
 	}
 	
-	public static void readPropertyFileName(String fileName) throws Exception
+	public static Properties readPropertyFileName(String fileName)
 	{
 		Properties properties = null;
 		FileReader reader = null;
@@ -40,16 +41,21 @@ public class FileManager {
 		} catch(Exception e)
 		{
 			// logger statement.
-			throw new Exception(e); // preventing execution progress
 		} finally
 		{
 			{
 				if(reader != null)
 				{
-					reader.close();
+					try {
+						reader.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 		}
+		return properties;
 	}
 
 }

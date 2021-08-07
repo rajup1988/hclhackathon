@@ -3,8 +3,12 @@
  */
 package com.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 /**
  * @author mohan
@@ -12,8 +16,7 @@ import org.openqa.selenium.WebDriver;
  */
 public class Testimonials extends BasePage {
 	
-	private By testimonial_Name = By.xpath("//div[@id='content']//section[@class='post-entry']/div//hr/preceding::strong");
-	private By testimonial_Details = By.xpath("//div[@id='content']//section[@class='post-entry']//p/em");	
+	private By testimonial_Details = By.xpath("//article/section/div//p");	
 	
 
 	public Testimonials(WebDriver driver) {
@@ -24,8 +27,31 @@ public class Testimonials extends BasePage {
 	 * 
 	 * @return
 	 */
-	public String getBrandingPageTitle() {
-		return getPageTitle();
+	public List<String> getTestimonials()
+	{
+		List<WebElement> elements = driver.findElements(testimonial_Details);
+		List<String> l = new ArrayList<String>();
+		for(WebElement ele : elements)
+		{
+			List<WebElement> emElements = ele.findElements(By.tagName("em"));
+			List<WebElement> strongElements = ele.findElements(By.tagName("Strong"));
+			if(emElements.size() > 0)
+			{
+				for(WebElement emElement: emElements)
+				{
+					l.add(emElement.getText());
+				}
+			}
+			
+			if(strongElements.size() > 0)
+			{
+				for(WebElement strongElement: strongElements)
+				{
+					l.add(strongElement.getText());
+				}
+			}
+		}
+		return l;
 	}
 	
 	
