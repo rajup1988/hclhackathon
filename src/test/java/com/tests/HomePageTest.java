@@ -19,12 +19,17 @@ public class HomePageTest extends BaseTest {
 		
 		HomePage homePage = page.getInstance(HomePage.class);
 		
+		ru.testCaseDescInReport("This test case verifies the Menu options");    	
+    	
+		ru.logInfoWithScreenshot("Getting the Number of Menu.."); 		
 		int menuCount = homePage.getMainMenuCount();
 		Assert.assertTrue(menuCount>0, "Menu count returned is not > 0!");
 		System.out.println("Menu Count is:- "+menuCount);
-		//Screenshot here
 		
+		ru.logInfoWithScreenshot("Getting the Menu Name.."); 
 		System.out.println(homePage.getMenuName());
+		
+		ru.passTestCaseWithScreenshot("'Menu Validation' Test Case Passed!");
 		
 	}
 	
@@ -33,8 +38,13 @@ public class HomePageTest extends BaseTest {
 		
 		HomePage homePage = page.getInstance(HomePage.class);
 		
+		ru.testCaseDescInReport("This test case enters contact details without Submitting"); 
+		
+		ru.logInfoWithScreenshot("Filling the contact details.."); 
 		homePage.enterAllDetails(name, lname, org, phNo, email, site, message);
-		//Screenshot here
+		ru.logInfoWithScreenshot("Contact Details Filled.."); 
+		
+		ru.passTestCaseWithScreenshot("'Fill Contact Details Without Submit' Test Case Passed!");		
 		
 	}
 	
@@ -43,10 +53,12 @@ public class HomePageTest extends BaseTest {
 		
 		HomePage homePage = page.getInstance(HomePage.class);
 		
+		ru.logInfoWithScreenshot("Filling the contact details.."); 
 		homePage.enterAllDetails(name, lname, org, phNo, email, site, message);
-		//Screenshot here
+		ru.logInfoWithScreenshot("Contact Details Filled.."); 
 		
 		homePage.clickSubmitButton();
+		ru.logInfoWithScreenshot("Contact Details Submitted.."); 
 		
 	}
 	
