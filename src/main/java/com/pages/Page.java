@@ -25,6 +25,7 @@ public abstract class Page {
 	public abstract void waitForPageTitle(String title);
 	public abstract List<WebElement> getElements(By locator);
 	public abstract void moveToElement(By locator);
+	public abstract void scrollToElementView(By locator);
 	
 	//Generics to handle Page objects in runtime
 	public <TPage extends BasePage> TPage getInstance(Class<TPage> pageClass) {

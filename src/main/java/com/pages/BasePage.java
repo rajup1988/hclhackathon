@@ -8,6 +8,7 @@ package com.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -84,6 +85,17 @@ public class BasePage extends Page{
 	public void moveToElement(By locator) {
 		WebElement ele = getElement(locator);		
 		action.moveToElement(ele).build().perform();		
+	}
+
+	@Override
+	public void scrollToElementView(By locator) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", getElement(locator));
+        try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 	}
 	
 	
