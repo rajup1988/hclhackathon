@@ -25,6 +25,7 @@ public class BaseTest {
 	
 	WebDriver driver;
 	Page page;
+	public static final String URL = "https://healthcaresuccess.com";
 	
 	@BeforeMethod
 	@Parameters(value= {"browser"})
@@ -40,7 +41,7 @@ public class BaseTest {
 			System.out.println("Please pass value of 'browser' between 'Chrome/Firefox' in the testng.xml...");
 		}
 		
-		driver.get("");
+		driver.get(URL);
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);

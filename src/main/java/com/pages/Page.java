@@ -1,5 +1,7 @@
 package com.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,6 +23,8 @@ public abstract class Page {
 	public abstract WebElement getElement(By locator);
 	public abstract void waitForElement(By locator);
 	public abstract void waitForPageTitle(String title);
+	public abstract List<WebElement> getElements(By locator);
+	public abstract void moveToElement(By locator);
 	
 	//Generics to handle Page objects in runtime
 	public <TPage extends BasePage> TPage getInstance(Class<TPage> pageClass) {

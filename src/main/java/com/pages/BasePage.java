@@ -1,11 +1,21 @@
 package com.pages;
 
+/**
+ * @author mohan
+ *
+ */
+
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class BasePage extends Page{
+	
+	Actions action;
 
 	public BasePage(WebDriver driver) {
 		super(driver);
@@ -55,6 +65,28 @@ public class BasePage extends Page{
 			e.printStackTrace();
 		}			
 	}
+
+	@Override
+	public List<WebElement> getElements(By locator) {
+		
+		List<WebElement> elements = null;
+		
+		try {
+			waitForElement(locator);
+			return elements = driver.findElements(locator);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public void moveToElement(By locator) {
+		WebElement ele = getElement(locator);		
+		action.moveToElement(ele).build().perform();		
+	}
+	
+	
 	
 	
 
